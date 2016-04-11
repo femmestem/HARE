@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :addresses
     resources :contacts, to: 'contact_infos'
-    resources :user_questionnaires
+    resources :users_questionnaires, only: [:edit, :update], as: 'questionnaires'
     get '/donations', to: 'listings#donation_history'
     get '/requests', to: 'listings#request_history'
     get '/watched_listings', to: 'listings#follow_history'
